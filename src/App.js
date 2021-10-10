@@ -1,24 +1,19 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
+
+  // used to handle reactive data
+  // any data that changes in the application is called state
+  // when the state changes, react will update the UI
+  // hook takes 1 argument, which is the default state
+  // returns the value that changes and the function that updates it
 
 function App() {
+  const [count, setCount] = useState(0);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <button onClick={() => setCount(count + 1)} style={{margin : "0 auto"}}>
+      {count}
+    </button>
   );
 }
 
