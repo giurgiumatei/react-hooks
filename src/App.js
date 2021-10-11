@@ -1,25 +1,21 @@
 import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react/cjs/react.development';
+import React, { useCallback } from "react";
+
+
+// when you define a function inside a function, a new function object is defined at every re-render
+// useful when a child component utilises a function from a parent component
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+  const [count, setCount] = useState(60);
+
+  const showCount = useCallback(() => {
+    alert(`Count ${count}`)
+  }, [count]);
+
+  return <> <SomeChild handler = {showCount} /> </>;
 }
 
 export default App;
