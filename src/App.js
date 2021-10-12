@@ -1,25 +1,20 @@
 import logo from './logo.svg';
 import './App.css';
+import {useLayoutEffect, useRef} from 'react';
 
+// works like useEffect hook
+// runs after render, but before painting to the screen
+// blocks visual updates until callback is finished
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const myButton = useRef(null);
+
+  useLayoutEffect(() => {
+    const rect = myButton.current.getBoundingClientRect();
+
+    console.log(box.height);
+  });
+
+  return <><button ref={ref}></button></>
 }
 
 export default App;
